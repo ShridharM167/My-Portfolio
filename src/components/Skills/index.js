@@ -12,6 +12,7 @@ align-items: center;
 `
 
 const Wrapper = styled.div`
+padding: 80px 0px 0px 0px;
 position: relative;
 display: flex;
 justify-content: space-between;

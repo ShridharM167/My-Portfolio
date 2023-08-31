@@ -8,15 +8,18 @@ import { Bio } from '../../data/constants';
 import { animateScroll as scroll } from 'react-scroll';
 
 const Nav = styled.div`
-    background-color: ${({theme}) => theme.card_light};
-    height: 80px;
+    background: #fff;
+    border-bottom: 1px solid #dadce0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
+    justify-content: space-between;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 999;
+    padding: 15px 85.333px;
+    box-shadow: 0px 5.333px 80px 0 rgba(0, 0, 0, 0.1);
+    height: 80px;
+    align-items: center;
+    font-size: 1rem;
     @media (max-width: 960px) {
         trastion: 0.8s all ease;
     }
@@ -78,7 +81,7 @@ const NavLink = styled.a`
 `;
 
 
-const GitHubButton = styled.a`
+const ContactMeButton = styled.a`
   border: 1.8px solid ${({ theme }) => theme.primary};
   justify-content: center;
   display: flex;
@@ -173,7 +176,7 @@ const Navbar = () => {
     <Nav>
         <NavbarContainer>
             <NavLogo to='/'>
-                <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }} onClick={scrollToTop} className="logo-button" href="/" >
+                <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer' }} onClick={scrollToTop} className="logo-button" href="/" >
                     <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
                 </a>
             </NavLogo>
@@ -189,7 +192,7 @@ const Navbar = () => {
                 <NavLink href='#education'>Education</NavLink>
             </NavItems>
             <ButtonContainer>
-                <GitHubButton href={Bio.github} target="_blank">Github Profile</GitHubButton>
+                <ContactMeButton href='#contact'>Contact Me</ContactMeButton>
             </ButtonContainer>
             {
           isOpen &&
@@ -209,7 +212,7 @@ const Navbar = () => {
             <MobileLink href='#education' onClick={() => {
               setIsOpen(!isOpen)
             }}>Education</MobileLink>
-            <GitHubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.github} target="_blank">Github Profile</GitHubButton>
+            <ContactMeButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href='#contact'>Contact Me</ContactMeButton>
           </MobileMenu>
         }
         </NavbarContainer>

@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import ResumeIcon from '@mui/icons-material/PersonPin';
 import { Bio } from "../../data/constants";
 import HeroImage from "../../images/HeroImage.png";
 import HeroBgAnimation from "../HeroBgAnimation";
 
 const HeroContainer = styled.div`
-  background: ${({ theme }) => theme.card_light};
+  background-color: #f5fcff;    
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 80px 30px;
+  padding: 80px 0px 10px 0px;
   @media (max-width: 960px) {
     padding: 66px 16px;
   }
@@ -156,51 +158,58 @@ const Span = styled.span`
 
 const SubTitle = styled.div`
   font-size: 20px;
-  line-height: 32px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  font-family: "Google Sans",Roboto,Arial,Helvetica,sans-serif;
   margin-bottom: 42px;
-  color: ${({ theme }) => theme.text_primary + 95};
-
   @media (max-width: 960px) {
     text-align: center;
   }
 
   @media (max-width: 640px) {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 28px;
+    font-weight : 400;
   }
 `;
 
 const ResumeButton = styled.a`
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    width: 95%;
-    max-width: 300px;
-    text-align: center;
-    padding: 16px 0;
-    color:${({ theme }) => theme.white};
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 600;
-    transition: all 0.2s ease-in-out !important;
-    background: hsla(271, 100%, 50%, 1);
-    background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-    box-shadow:  20px 20px 60px #1F2634,
-    -20px -20px 60px #1F2634;
-    &:hover {
-        transform: scale(1.05);
-    transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
-    filter: brightness(1);
-    }    
-    
-    
+background-color: #1a73e8;
+color: #fff;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+-webkit-box-align: center;
+align-items: center;
+border: 1px solid transparent;
+border-radius: 4px;
+display: inline-flex;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+flex-flow: row nowrap;
+font-family: "Google Sans",Arial,Helvetica,sans-serif;
+font-size: 16px;
+font-weight: 500;
+justify-content: space-around;
+letter-spacing: .5px;
+line-height: 24px;
+margin: 8px 30px 8px 0px;
+max-width: 380px;
+min-height: 48px;
+min-width: 96px;
+overflow: hidden;
+padding: 12px 24px 12px 24px;
+text-align: center;
+text-decoration: none;
+vertical-align: middle;
+
+&:hover {
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  background-color: #185abc;
+}
+
     @media (max-width: 640px) {
-        padding: 12px 0;
+        // padding: 12px 0;
         font-size: 18px;
     } 
 
@@ -232,8 +241,10 @@ const Hero = () => {
             </TextLoop>
             <SubTitle>{Bio.description}</SubTitle>
             <ResumeButton href={Bio.resume} target="display">
-              Check Resume
+              <ResumeIcon style={{ marginRight: '8px' }} /> Resume
             </ResumeButton>
+            <ResumeButton href={Bio.github} target="display"> <GitHubIcon style={{ marginRight: '8px' }} /> Github</ResumeButton>
+
           </HeroLeftContainer>
 
           <HeroRightContainer id="Right">

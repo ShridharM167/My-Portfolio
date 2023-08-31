@@ -24,7 +24,7 @@ align-items: center;
 flex-direction: column;
 width: 100%;
 max-width: 1350px;
-padding: 0px 0px 80px 0px;
+padding: 80px 0px 80px 0px;
 gap: 12px;
 @media (max-width: 960px) {
     flex-direction: column;
@@ -130,7 +130,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
+    emailjs.sendForm('service_vt9idyd', 'template_rhgxnj6', form.current, 'TY6u3dKV6kTTBCGfa')
       .then((result) => {
         setOpen(true);
         form.current.reset();
@@ -142,7 +142,7 @@ const Contact = () => {
 
 
   return (
-    <Container>
+    <Container id='contact'>
       <Wrapper>
         <Title>Contact</Title>
         <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
