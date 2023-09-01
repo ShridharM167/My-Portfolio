@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { DiCssdeck } from 'react-icons/di';
 import { FaBars } from 'react-icons/fa';
 import { useTheme } from 'styled-components';
-import { Bio } from '../../data/constants';
 import { animateScroll as scroll } from 'react-scroll';
 
 const Nav = styled.div`
@@ -72,7 +71,7 @@ const NavLink = styled.a`
     transition: all 0.2s ease-in-out;
     text-decoration: none;
     :hover {
-      color: ${({ theme }) => theme.primary};
+      color: #EA4335;
     }
 
     &.active {
@@ -176,7 +175,7 @@ const Navbar = () => {
     <Nav>
         <NavbarContainer>
             <NavLogo to='/'>
-                <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer' }} onClick={scrollToTop} className="logo-button" href="/" >
+                <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer', color: '#4285F4', }} onClick={scrollToTop} className="logo-button" href="/" >
                     <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
                 </a>
             </NavLogo>
@@ -189,6 +188,7 @@ const Navbar = () => {
                 <NavLink href='#about'>About</NavLink>
                 <NavLink href='#skills'>Skills</NavLink>
                 <NavLink href='#experience'>Experience</NavLink>
+                <NavLink href='#projects'>Projects</NavLink>
                 <NavLink href='#education'>Education</NavLink>
             </NavItems>
             <ButtonContainer>

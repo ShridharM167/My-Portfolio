@@ -42,7 +42,7 @@ export const Desc = styled.div`
     font-size: 18px;
     text-align: center;
     max-width: 600px;
-    color: ${({ theme }) => theme.text_secondary};
+    color: #5f6368;
     @media (max-width: 768px) {
         font-size: 16px;
     }
@@ -60,11 +60,11 @@ const SkillsContainer = styled.div`
 const Skill = styled.div`
   width: 100%;
   max-width: 500px;
-  background: ${({ theme }) => theme.card};
-  border: 0.1px solid #854CE6;
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
-  border-radius: 16px;
+  background: #f5fcff;
+  box-shadow: rgba(23, 92, 230, 0.15) 0px 2px 12px;
+  border-radius: 10px;
   padding: 18px 36px;
+  border-radius: 16px;
   @media (max-width: 768px) {
     max-width: 400px;
     padding: 10px 36px;
@@ -96,8 +96,7 @@ const SkillList = styled.div`
 const SkillItem = styled.div`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.text_primary + 80};
-  border: 1px solid ${({ theme }) => theme.text_primary + 80};
+  border: 1px solid #9c27b0;
   border-radius: 12px;
   padding: 12px 16px;
   display: flex;

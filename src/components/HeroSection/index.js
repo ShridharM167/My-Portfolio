@@ -4,7 +4,7 @@ import Typewriter from "typewriter-effect";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ResumeIcon from '@mui/icons-material/PersonPin';
 import { Bio } from "../../data/constants";
-import HeroImage from "../../images/HeroImage.png";
+import myPhoto from "../../images/myPhoto.png";
 import HeroBgAnimation from "../HeroBgAnimation";
 
 const HeroContainer = styled.div`
@@ -21,7 +21,7 @@ const HeroContainer = styled.div`
   }
   z-index: 1;
 
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
+  // clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
 `;
 
 const HeroBg = styled.div`
@@ -157,6 +157,7 @@ const Span = styled.span`
 `;
 
 const SubTitle = styled.div`
+  color: #5f6368;
   font-size: 20px;
   font-weight: 400;
   line-height: 28px;
@@ -248,7 +249,7 @@ const Hero = () => {
           </HeroLeftContainer>
 
           <HeroRightContainer id="Right">
-            <Img src={HeroImage} alt="hero-image" />
+            <Img src={myPhoto} alt="hero-image" />
           </HeroRightContainer>
         </HeroInnerContainer>
       </HeroContainer>

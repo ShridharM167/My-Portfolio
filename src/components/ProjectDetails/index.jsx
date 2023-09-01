@@ -205,7 +205,7 @@ const index = ({ openModal, setOpenModal }) => {
                             <Tag>{tag}</Tag>
                         ))}
                     </Tags>
-                    <Desc>{project?.description}</Desc>
+                    <Desc>{project?.details}</Desc>
                     {project.member && (
                         <>
                             <Label>Members</Label>

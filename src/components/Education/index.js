@@ -17,7 +17,6 @@ const Container = styled.div`
     position: relative;
     z-index: 1;
     align-items: center;
-    padding: 0px 0px 60px 0px;
     @media (max-width: 960px) {
         padding: 0px;
     }
@@ -54,7 +53,7 @@ const Desc = styled.div`
     font-size: 18px;
     text-align: center;
     max-width: 600px;
-    color: ${({ theme }) => theme.text_secondary};
+    color: #5f6368;
     @media (max-width: 768px) {
         margin-top: 12px;
         font-size: 16px;

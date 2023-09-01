@@ -1,5 +1,9 @@
-import GreenTheMap from "../images/home page.PNG";
+import GreenTheMap from "../images/greenTheMap.PNG";
 import SraCollegeLogo from "../images/SraCollege.jpeg"
+import DockerLogo from "../images/docker.png"
+import mongodbLogo from "../images/mongodb.png";
+import mongooseLogo from "../images/mongoose.png";
+import nodejsLogo from "../images/nodejs.png"
 
   export const Bio = {
     name: "Shridhar Mugalkhod",
@@ -35,7 +39,7 @@ import SraCollegeLogo from "../images/SraCollege.jpeg"
       skills: [
         {
           name: "Node Js",
-          image: "https://nodejs.org/static/images/logo.svg",
+          image: nodejsLogo,
         },
         {
           name: "Express Js",
@@ -49,8 +53,7 @@ import SraCollegeLogo from "../images/SraCollege.jpeg"
         },
         {
           name: "Mongoose",
-          image:
-            "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongoose/mongoose.png",
+          image: mongooseLogo
         },
       ],
     },
@@ -59,8 +62,7 @@ import SraCollegeLogo from "../images/SraCollege.jpeg"
       skills: [
         {
           name: "MongoDB",
-          image:
-            "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
+          image: mongodbLogo
         },
       ],
     },
@@ -95,8 +97,7 @@ import SraCollegeLogo from "../images/SraCollege.jpeg"
         },
         {
           name: "Docker",
-          image:
-            "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
+          image: DockerLogo
         },
         {
           name: "Netlify",
@@ -179,7 +180,8 @@ import SraCollegeLogo from "../images/SraCollege.jpeg"
       id: 0,
       title: "Green the Map",
       date: "Jul 2019 - Aug 2020",
-      description:
+      description:"An effective garbage management system.",
+      details:
         "Developed ”Green the Map” web application showcasing interactive visualizations of garbage areas, user complaints, and smart bin maintenance data.\n" + 
         "Implemented real-time updates using WebSocket communication to ensure seamless synchronization of smart bin data across devices.\n" + 
         "Utilized data visualization libraries to present user complaints and garbage distribution patterns, aiding in informed waste management decisions.",

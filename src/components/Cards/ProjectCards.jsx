@@ -17,7 +17,7 @@ const Button = styled.button`
 `
 const Card = styled.div`
     width: 330px;
-    height: 490px;
+    height: auto;
     background-color: ${({ theme }) => theme.card};
     cursor: pointer;
     border-radius: 10px;
@@ -106,12 +106,27 @@ const Description = styled.div`
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 `
+const More = styled.div`
+    color: #1a73e8;
+    margin: 32px 0 24px;
+    text-align: center;
 
+    @media (min-width: 1024px){
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: initial;
+    line-height: 24px;
+  }
+`
 const Members = styled.div`
     display: flex;
     align-items: center;
     padding-left: 10px;
 `
+
 const Avatar = styled.img`
     width: 38px;
     height: 38px;
@@ -126,21 +141,25 @@ const ProjectCards = ({project,setOpenModal}) => {
     return (
         <Card onClick={() => setOpenModal({state: true, project: project})}>
             <Image src={project.image}/>
-            <Tags>
-                {project.tags?.map((tag, index) => (
-                <Tag>{tag}</Tag>
-                ))}
-            </Tags>
             <Details>
                 <Title>{project.title}</Title>
                 <Date>{project.date}</Date>
                 <Description>{project.description}</Description>
             </Details>
-            <Members>
+            <Tags>
+                {project.tags?.map((tag, index) => (
+                <Tag>{tag}</Tag>
+                ))}
+            </Tags>
+            <More> <span>
+            Load more.            </span>
+                
+            </More>
+            {/* <Members>
                 {project.member?.map((member) => (
                     <Avatar src={member.img}/>
                 ))}
-            </Members>
+            </Members> */}
             {/* <Button>View Project</Button> */}
         </Card>
     )
