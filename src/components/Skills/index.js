@@ -59,11 +59,11 @@ const SkillsContainer = styled.div`
 
 const Skill = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   background: #f5fcff;
   box-shadow: rgba(23, 92, 230, 0.15) 0px 2px 12px;
   border-radius: 10px;
-  padding: 18px 36px;
+  padding: 15px 15px;
   border-radius: 16px;
   @media (max-width: 768px) {
     max-width: 400px;
@@ -98,18 +98,18 @@ const SkillItem = styled.div`
   font-weight: 400;
   border: 1px solid #9c27b0;
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 8px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   @media (max-width: 768px) {
     font-size: 14px;
-    padding: 8px 12px;
+    padding: 8px 8px;
   }
   @media (max-width: 500px) {
     font-size: 14px;
-    padding: 6px 12px;
+    padding: 6px 8px;
   }
 `
 

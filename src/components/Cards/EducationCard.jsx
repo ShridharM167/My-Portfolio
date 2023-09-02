@@ -17,7 +17,7 @@ const Description = styled.div`
     width: 100%;
     font-size: 15px;
     font-weight: 400;
-    color: ${({ theme }) => theme.text_primary + 99};
+    color : #5f6368;
     margin-bottom: 10px;
     @media only screen and (max-width: 768px){
         font-size: 12px;
@@ -34,6 +34,7 @@ text-overflow: ellipsis;
 `
 
 const Card = styled.div`
+    background-color: #FFFFFF;
     width: 650px;
     border-radius: 10px;
     box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
@@ -93,7 +94,7 @@ const Body = styled.div`
 const Name = styled.div`
     font-size: 18px;
     font-weight: 600;
-    color: ${({ theme }) => theme.text_primary + 99};
+    color: #4285f4;
     @media only screen and (max-width: 768px){
         font-size: 14px;
     }
@@ -101,8 +102,7 @@ const Name = styled.div`
 
 const Degree = styled.div`
     font-size: 14px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary + 99};
+    font-weight: 800;
     @media only screen and (max-width: 768px){
         font-size: 12px;
     }
@@ -111,7 +111,6 @@ const Degree = styled.div`
 const Date = styled.div`
     font-size: 12px;
     font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 80};
     @media only screen and (max-width: 768px){
         font-size: 10px;
     }
@@ -120,7 +119,7 @@ const Date = styled.div`
 const Grade = styled.div`
     font-size: 14px;
     font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary + 99};
+    color : #5f6368;
     @media only screen and (max-width: 768px){
         font-size: 12px;
     }

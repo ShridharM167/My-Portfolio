@@ -60,7 +60,10 @@ color: ${({ theme }) => theme.text_primary};
 
 const SocialMediaIcons = styled.div`
   display: flex;
+  justify-content: center;
   margin-top: 1rem;
+  width: 100%;
+  border-bottom: 1px solid #dadce0;
 `;
 
 const SocialMediaIcon = styled.a`
@@ -85,7 +88,10 @@ function Footer() {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Shridhar Mugalkhod</Logo>
+      <SocialMediaIcons>
+          <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
+          <SocialMediaIcon href={Bio.github} target="display"><GitHubIcon /></SocialMediaIcon>
+        </SocialMediaIcons>
         <Nav>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
@@ -93,10 +99,7 @@ function Footer() {
           <NavLink href="#projects">Projects</NavLink>
           <NavLink href="#education">Education</NavLink>
         </Nav>
-        <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.linkedin} target="display"><LinkedInIcon /></SocialMediaIcon>
-          <SocialMediaIcon href={Bio.github} target="display"><GitHubIcon /></SocialMediaIcon>
-        </SocialMediaIcons>
+        
         <Copyright>
           &copy; 2023 Shridhar Mugalkhod. All rights reserved.
         </Copyright>

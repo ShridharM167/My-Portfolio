@@ -4,8 +4,7 @@ import Typewriter from "typewriter-effect";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ResumeIcon from '@mui/icons-material/PersonPin';
 import { Bio } from "../../data/constants";
-import myPhoto from "../../images/myPhoto.png";
-import HeroBgAnimation from "../HeroBgAnimation";
+import myPhoto from "../../images/shridhar.jpeg";
 
 const HeroContainer = styled.div`
   background-color: #f5fcff;    
@@ -20,32 +19,6 @@ const HeroContainer = styled.div`
     padding: 32px 16px;
   }
   z-index: 1;
-
-  // clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
-`;
-
-const HeroBg = styled.div`
-  position: absolute;
-  display: flex;
-  justify-content: end;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-width: 1360px;
-  overflow: hidden;
-  padding: 0 30px;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-
-  @media (max-width: 960px) {
-    justify-content: center;
-    padding: 0 0px;
-  }
 `;
 
 const HeroInnerContainer = styled.div`
@@ -104,8 +77,8 @@ const Img = styled.img`
   height: 100%;
   max-width: 400px;
   max-height: 400px;
-  border-radius: 10%; /// 50
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 1px solid #dadce0;
+  border-radius: 8px;
 
   @media (max-width: 768px) {
     max-width: 400px;
@@ -113,8 +86,8 @@ const Img = styled.img`
   }
 
   @media (max-width: 640px) {
-    max-width: 280px;
-    max-height: 280px;
+    max-width: 200px;
+    max-height: 200px;
   }
 `;
 
@@ -153,7 +126,6 @@ const TextLoop = styled.div`
 
 const Span = styled.span`
   color: ${({ theme }) => theme.primary};
-  cursor: pointer;
 `;
 
 const SubTitle = styled.div`
@@ -175,7 +147,11 @@ const SubTitle = styled.div`
   }
 `;
 
-const ResumeButton = styled.a`
+const ButtonContainer= styled.div`
+  display: flex;
+  justify-content: center;
+`
+const Button = styled.a`
 background-color: #1a73e8;
 color: #fff;
 -webkit-font-smoothing: antialiased;
@@ -194,7 +170,7 @@ font-weight: 500;
 justify-content: space-around;
 letter-spacing: .5px;
 line-height: 24px;
-margin: 8px 30px 8px 0px;
+margin: 10px;
 max-width: 380px;
 min-height: 48px;
 min-width: 96px;
@@ -220,13 +196,10 @@ const Hero = () => {
   return (
     <div id="about">
       <HeroContainer>
-        <HeroBg>
-          <HeroBgAnimation />
-        </HeroBg>
         <HeroInnerContainer>
           <HeroLeftContainer id="Left">
             <Title>
-              Hi, I am <br /> {Bio.name}
+              Hey, I am <br /> {Bio.name}
             </Title>
             <TextLoop>
               I am a
@@ -241,11 +214,14 @@ const Hero = () => {
               </Span>
             </TextLoop>
             <SubTitle>{Bio.description}</SubTitle>
-            <ResumeButton href={Bio.resume} target="display">
+            <ButtonContainer>
+            <Button href={Bio.resume} target="display">
               <ResumeIcon style={{ marginRight: '8px' }} /> Resume
-            </ResumeButton>
-            <ResumeButton href={Bio.github} target="display"> <GitHubIcon style={{ marginRight: '8px' }} /> Github</ResumeButton>
-
+            </Button>
+            <Button href={Bio.github} target="display"> 
+              <GitHubIcon style={{ marginRight: '8px' }} /> Github
+            </Button>
+            </ButtonContainer>
           </HeroLeftContainer>
 
           <HeroRightContainer id="Right">
