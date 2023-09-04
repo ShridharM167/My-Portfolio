@@ -125,7 +125,12 @@ import nodejsLogo from "../images/nodejs.png"
       role: "Full Stack Developer",
       company: "Simnovus",
       date: "January 2021 - June 2023",
-      desc: "Worked on Simnovator, a real-time web application where users can test and view statistics and logs of 5G networks.",
+      desc: "* Worked on Simnovator, a real-time web application where users can test and view statistics and logs of 5G networks.\n" +
+            "* Created REST APIs for handling GET, POST, PATCH, and DELETE methods with reusable, testable, and efficient code using the Node and Express frameworks. MongoDB was used as the database.\n" + 
+            "* Followed the REST architectural style to standardize existing APIs and transform them into RESTful web services.\n" + 
+            "* Implemented multiple WebSocket connections to external servers for obtaining real-time data on the backend side.\n" +
+            "* Optimized statistics graphs and charts for long-term 5G network tests on the frontend side. Additionally, implemented a statistics graph feature to display past data and provided timely bug fixes to ensure the smooth functioning of the Simnovator application.\n" +
+            "* Worked closely with a product manager and software architect on tasks such as database design, product roadmap planning, effort estimation, and determination of developer requirements and specifications.",
       skills: [
         "ReactJS",
         "NodeJs",
@@ -182,9 +187,9 @@ import nodejsLogo from "../images/nodejs.png"
       date: "Jul 2019 - Aug 2020",
       description:"An effective garbage management system.",
       details:
-        "Developed ”Green the Map” web application showcasing interactive visualizations of garbage areas, user complaints, and smart bin maintenance data.\n" + 
-        "Implemented real-time updates using WebSocket communication to ensure seamless synchronization of smart bin data across devices.\n" + 
-        "Utilized data visualization libraries to present user complaints and garbage distribution patterns, aiding in informed waste management decisions.",
+        "* Developed ”Green the Map” web application showcasing interactive visualizations of garbage areas, user complaints, and smart bin maintenance data.\n" + 
+        "* Implemented real-time updates using WebSocket communication to ensure seamless synchronization of smart bin data across devices.\n" + 
+        "* Utilized data visualization libraries to present user complaints and garbage distribution patterns, aiding in informed waste management decisions.",
       image: GreenTheMap ,
       tags: [
         "PHP",

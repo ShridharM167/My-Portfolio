@@ -32,9 +32,9 @@ position: relative;
 `;
 
 const Title = styled.div`
+  padding: 10px 0px;
   font-size: 28px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
+  font-weight: 800;
   margin: 8px 6px 0px 6px;
   @media only screen and (max-width: 600px) {
       font-size: 24px;
@@ -46,7 +46,6 @@ const Date = styled.div`
     font-size: 16px;
     margin: 2px 6px;
     font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary};
     @media only screen and (max-width: 768px){
         font-size: 12px;
     }
@@ -55,9 +54,12 @@ const Date = styled.div`
 
 
 const Desc = styled.div`
+    white-space: pre-wrap;
+    line-height: 1.5rem;
     font-size: 16px;
     font-weight: 400;
-    color: ${({ theme }) => theme.text_primary};
+    color: #5f6368;
+    text-align: justify;
     margin: 8px 6px;
     @media only screen and (max-width: 600px) {
         font-size: 14px;
@@ -76,7 +78,7 @@ const Image = styled.img`
 const Label = styled.div`
     font-size: 20px;
     font-weight: 600;
-    color: ${({ theme }) => theme.text_primary};
+    // color: ${({ theme }) => theme.text_primary};
     margin: 8px 6px;
     @media only screen and (max-width: 600px) {
         font-size: 16px;
@@ -96,7 +98,7 @@ const Tags = styled.div`
 const Tag = styled.div`
     font-size: 14px;
     font-weight: 400;
-    color: ${({ theme }) => theme.primary};
+    color: #5f6368;
     margin: 4px;
     padding: 4px 8px;
     border-radius: 8px;
@@ -140,47 +142,56 @@ const MemberName = styled.div`
     font-size: 16px;
     font-weight: 500;
     width: 200px;
-    color: ${({ theme }) => theme.text_primary};
+    // color: #5f6368;
     @media only screen and (max-width: 600px) {
         font-size: 14px;
     }
 `;
 
-
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    margin: 12px 0px;
-    gap: 12px;
-`;
-
+const ButtonContainer= styled.div`
+  display: flex;
+  justify-content: center;
+`
 const Button = styled.a`
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_primary};
-    padding: 12px 16px;
-    border-radius: 8px;
-    background-color: ${({ theme }) => theme.primary};
-    ${({ dull, theme }) => dull && `
-        background-color: ${theme.bgLight};
-        color: ${theme.text_secondary};
-        &:hover {
-            background-color: ${({ theme }) => theme.bg + 99};
-        }
-    `}
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.5s ease;
-    &:hover {
-        background-color: ${({ theme }) => theme.primary + 99};
-    }
-    @media only screen and (max-width: 600px) {
-        font-size: 12px;
-    }
-`;
+background-color: #1a73e8;
+color: #fff;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+-webkit-box-align: center;
+align-items: center;
+border: 1px solid transparent;
+border-radius: 4px;
+display: inline-flex;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+flex-flow: row nowrap;
+font-family: "Google Sans",Arial,Helvetica,sans-serif;
+font-size: 16px;
+font-weight: 500;
+justify-content: space-around;
+letter-spacing: .5px;
+line-height: 24px;
+margin: 10px;
+max-width: 380px;
+min-height: 48px;
+min-width: 96px;
+overflow: hidden;
+padding: 12px 24px 12px 24px;
+text-align: center;
+text-decoration: none;
+vertical-align: middle;
 
+&:hover {
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  background-color: #185abc;
+}
+
+    @media (max-width: 640px) {
+        // padding: 12px 0;
+        font-size: 14px;
+    } 
+
+`;
 
 const index = ({ openModal, setOpenModal }) => {
     const project = openModal?.project;
@@ -214,7 +225,7 @@ const index = ({ openModal, setOpenModal }) => {
                                     <Member>
                                         <MemberImage src={member.img} />
                                         <MemberName>{member.name}</MemberName>
-                                        <a href={member.linkedin} target="new" style={{textDecoration: 'none', color: 'inherit'}}>
+                                        <a href={member.linkedin} target="new" style={{textDecoration: 'none', color: ' #1a73e8;'}}>
                                             <LinkedIn />
                                         </a>
                                     </Member>
@@ -222,10 +233,10 @@ const index = ({ openModal, setOpenModal }) => {
                             </Members>
                         </>
                     )}
-                    <ButtonGroup>
-                        {project.github && (<Button dull href={project?.github} target='new'>View Code</Button>)}
-                        {project.webapp && (<Button href={project.webapp} target='new'>View Live App</Button>)}
-                    </ButtonGroup>
+                    <ButtonContainer>
+                        {project.github && (<Button href={project?.github} target='display'>View Code</Button>)}
+                        {project.webapp && (<Button href={project.webapp} target='display'>View Live App</Button>)}
+                    </ButtonContainer>
                 </Wrapper>
             </Container>
 

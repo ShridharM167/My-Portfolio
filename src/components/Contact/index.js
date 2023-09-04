@@ -56,23 +56,15 @@ const Desc = styled.div`
 
 
 const ContactForm = styled.form`
-  width: 95%;
-  max-width: 600px;
+  width: 80%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.card};
   padding: 32px;
-  border-radius: 16px;
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  border-radius: 10px;
   margin-top: 28px;
   gap: 12px;
-`
-
-const ContactTitle = styled.div`
-  font-size: 24px;
-  margin-bottom: 6px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
 `
 
 const ContactInput = styled.input`
@@ -104,23 +96,46 @@ const ContactInputMessage = styled.textarea`
 `
 
 const ContactButton = styled.input`
-  cursor: pointer;  
-  width: 100%;
-  text-decoration: none;
-  text-align: center;
-  background: hsla(271, 100%, 50%, 1);
-  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -moz-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  background: -webkit-linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
-  padding: 13px 16px;
-  margin-top: 2px;
-  border-radius: 12px;
-  border: none;
-  color: ${({ theme }) => theme.text_primary};
-  font-size: 18px;
-  font-weight: 600;
-`
+cursor: pointer; 
+background-color: #1a73e8;
+color: #fff;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+-webkit-box-align: center;
+align-items: center;
+border: 1px solid transparent;
+border-radius: 4px;
+display: inline-flex;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+flex-flow: row nowrap;
+font-family: "Google Sans",Arial,Helvetica,sans-serif;
+font-size: 16px;
+font-weight: 500;
+justify-content: space-around;
+letter-spacing: .5px;
+line-height: 24px;
+margin: 10px;
+max-width: fit-content;
+min-height: 48px;
+min-width: 96px;
+overflow: hidden;
+padding: 12px 24px 12px 24px;
+text-align: center;
+text-decoration: none;
+vertical-align: middle;
 
+&:hover {
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  background-color: #185abc;
+}
+
+    @media (max-width: 640px) {
+        // padding: 12px 0;
+        font-size: 14px;
+    } 
+
+`;
 
 
 const Contact = () => {
@@ -145,10 +160,9 @@ const Contact = () => {
   return (
     <Container id='contact'>
       <Wrapper>
-        <Title>Contact</Title>
-        <Desc>Feel free to reach out to me for any questions or opportunities!</Desc>
+        <Title>Contact Me</Title>
+        <Desc>Your questions and opportunities are just a message away.</Desc>
         <ContactForm ref={form} onSubmit={handleSubmit}>
-          <ContactTitle>Email Me 🚀</ContactTitle>
           <ContactInput placeholder="Your Email" name="from_email" required />
           <ContactInput placeholder="Your Name" name="from_name" required/>
           <ContactInput placeholder="Subject" name="subject" required/>

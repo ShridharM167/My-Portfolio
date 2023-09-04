@@ -129,6 +129,7 @@ const Span = styled.span`
 `;
 
 const SubTitle = styled.div`
+  text-align: justify;
   color: #5f6368;
   font-size: 20px;
   font-weight: 400;
@@ -137,7 +138,7 @@ const SubTitle = styled.div`
   font-family: "Google Sans",Roboto,Arial,Helvetica,sans-serif;
   margin-bottom: 42px;
   @media (max-width: 960px) {
-    text-align: center;
+    text-align: justify;
   }
 
   @media (max-width: 640px) {
@@ -187,7 +188,7 @@ vertical-align: middle;
 
     @media (max-width: 640px) {
         // padding: 12px 0;
-        font-size: 18px;
+        font-size: 14px;
     } 
 
 `;
@@ -202,7 +203,7 @@ const Hero = () => {
               Hey, I am <br /> {Bio.name}
             </Title>
             <TextLoop>
-              I am a
+              I am
               <Span>
                 <Typewriter
                   options={{

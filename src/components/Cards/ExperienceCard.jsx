@@ -25,6 +25,8 @@ const Description = styled.div`
 `
 
 const Span = styled.span`
+white-space: pre-wrap;
+text-align: justify;
 overflow: hidden;
 display: -webkit-box;
 max-width: 100%;

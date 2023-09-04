@@ -9,7 +9,7 @@ const Projects = ({openModal,setOpenModal}) => {
       <Wrapper>
         <Title>Projects</Title>
         <Desc>
-          I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
+        Throughout my career, I have undertaken a diverse spectrum of web development projects, including web applications and websites. Below, I present a curated selection of these projects, exemplifying my expertise and unwavering commitment to delivering high-quality solutions.
         </Desc>
         <CardContainer>
           {projects

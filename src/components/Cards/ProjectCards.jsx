@@ -29,8 +29,8 @@ const Card = styled.div`
     gap: 14px;
     transition: all 0.5s ease-in-out;
     &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
+        transform: translateY(-5px);
+        // box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
         filter: brightness(1.1);
     }
     &:hover ${Button} {
@@ -58,7 +58,7 @@ const Tags = styled.div`
 const Tag = styled.span`
     font-size: 12px;
     font-weight: 400;
-    color: ${({ theme }) => theme.primary};
+    color: #5f6368;
     background-color: ${({ theme }) => theme.primary + 15};
     padding: 2px 8px;
     border-radius: 10px;
@@ -72,9 +72,9 @@ const Details = styled.div`
     padding: 0px 2px;
 `
 const Title = styled.div`
+    padding: 10px 0px;
     font-size: 20px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_secondary};
+    font-weight: 800;
     overflow: hidden;
     display: -webkit-box;
     max-width: 100%;
@@ -82,13 +82,15 @@ const Title = styled.div`
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    @media only screen and (max-width: 768px){
+        font-size: 16px;
+    }
 `
 
 const Date = styled.div`
     font-size: 12px;
     margin-left: 2px;
     font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 80};
     @media only screen and (max-width: 768px){
         font-size: 10px;
     }
@@ -97,7 +99,7 @@ const Date = styled.div`
 
 const Description = styled.div`
     font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 99};
+    color: #5f6368;
     overflow: hidden;
     margin-top: 8px;
     display: -webkit-box;
@@ -108,7 +110,7 @@ const Description = styled.div`
 `
 const More = styled.div`
     color: #1a73e8;
-    margin: 32px 0 24px;
+    margin: 17px 0px 3px;
     text-align: center;
 
     @media (min-width: 1024px){
@@ -151,15 +153,13 @@ const ProjectCards = ({project,setOpenModal}) => {
                 <Tag>{tag}</Tag>
                 ))}
             </Tags>
-            <More> <span>
-            Load more.            </span>
-                
-            </More>
-            {/* <Members>
+            <Members>
                 {project.member?.map((member) => (
                     <Avatar src={member.img}/>
                 ))}
-            </Members> */}
+            </Members>
+            <More> <span>Load more</span></More>
+            
             {/* <Button>View Project</Button> */}
         </Card>
     )

@@ -5,6 +5,7 @@ import { DiCssdeck } from 'react-icons/di';
 import { FaBars } from 'react-icons/fa';
 import { useTheme } from 'styled-components';
 import { animateScroll as scroll } from 'react-scroll';
+import { CloseRounded } from '@mui/icons-material';
 
 const Nav = styled.div`
     background: #fff;
@@ -45,11 +46,7 @@ const NavLogo = styled(LinkR)`
       padding: 0 0px;
   }
 `;
-const Span = styled.div`
-    padding: 0 4px;
-    font-weight: bold;
-    font-size: 18px;
-`;
+
 const NavItems = styled.ul`
     width: 100%;
     display: flex;
@@ -119,7 +116,7 @@ const MobileIcon = styled.div`
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
-    top: 0;
+    top: 11px;
     right: 0;
     transform: translate(-100%, 60%);
     font-size: 1.5rem;
@@ -176,13 +173,20 @@ const Navbar = () => {
         <NavbarContainer>
             <NavLogo to='/'>
                 <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer', color: '#4285F4', }} onClick={scrollToTop} className="logo-button" href="/" >
-                    <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
+                    <DiCssdeck size="3rem" /> 
+                    {/* <Span>Portfolio</Span> */}
                 </a>
             </NavLogo>
             <MobileIcon>
-                <FaBars onClick={() => {
+                {!isOpen && <FaBars onClick={() => {
                     setIsOpen(!isOpen)
-                }} />
+                }} />}
+
+                {isOpen && <CloseRounded 
+                  onClick={() => {
+                    setIsOpen(!isOpen)
+                  }}/>
+                }
             </MobileIcon>
             <NavItems>
                 <NavLink href='#about'>About</NavLink>

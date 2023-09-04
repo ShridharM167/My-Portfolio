@@ -61,7 +61,7 @@ const Skill = styled.div`
   width: 100%;
   max-width: 400px;
   background: #f5fcff;
-  box-shadow: rgba(23, 92, 230, 0.15) 0px 2px 12px;
+  // box-shadow: rgba(23, 92, 230, 0.15) 0px 2px 12px;
   border-radius: 10px;
   padding: 15px 15px;
   border-radius: 16px;
