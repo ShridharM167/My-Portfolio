@@ -23,6 +23,9 @@ const Nav = styled.div`
     @media (max-width: 960px) {
         trastion: 0.8s all ease;
     }
+    @media (max-width: 640px) {
+      padding: 0 0px;
+  }
 `;
 const NavbarContainer = styled.div`
   display: flex;
@@ -45,6 +48,7 @@ const NavLogo = styled(LinkR)`
     @media (max-width: 640px) {
       padding: 0 0px;
   }
+  
 `;
 
 const NavItems = styled.ul`
