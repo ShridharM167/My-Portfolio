@@ -1,6 +1,6 @@
 # Shridhar Mugalkhod's Portfolio Website
 
-![Portfolio Preview](./src/images/WebPage.png)
+![Portfolio Preview](src/images/WebPage.png)
 
 A personal portfolio website showcasing my work, skills, and projects. This website is designed to highlight my professional background and showcase the projects I've worked on.
 
