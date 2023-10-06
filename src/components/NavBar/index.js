@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
-import { DiCssdeck } from 'react-icons/di';
 import { FaBars } from 'react-icons/fa';
 import { useTheme } from 'styled-components';
 import { animateScroll as scroll } from 'react-scroll';
 import { CloseRounded } from '@mui/icons-material';
+import Logo from '../../images/Logo.svg'
 
 const Nav = styled.div`
     background: #fff;
@@ -177,8 +177,7 @@ const Navbar = () => {
         <NavbarContainer>
             <NavLogo to='/'>
                 <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer', color: '#4285F4', }} onClick={scrollToTop} className="logo-button" href="/" >
-                    <DiCssdeck size="3rem" /> 
-                    {/* <Span>Portfolio</Span> */}
+                <img src={Logo} alt="logo"  style={{ width: '3rem', height: '3rem' }} />
                 </a>
             </NavLogo>
             <MobileIcon>

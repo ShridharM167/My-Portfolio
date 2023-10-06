@@ -4,6 +4,7 @@ import DockerLogo from "../images/docker.png"
 import mongodbLogo from "../images/mongodb.png";
 import mongooseLogo from "../images/mongoose.png";
 import nodejsLogo from "../images/nodejs.png"
+import tejasProfile from '../images/tejas-profile.jpeg'
 
   export const Bio = {
     name: "Shridhar Mugalkhod",
@@ -14,7 +15,7 @@ import nodejsLogo from "../images/nodejs.png"
       "Experienced Software Engineer with a demonstrated history of working in the product industry. I am passionate about exploring web application development in my professional career.",
     github: "https://github.com/shridhar-mugalkhod",
     resume:
-      "https://drive.google.com/file/d/19VtRWr-NjOOytfF73jc0PgSkXbmsqcQH/view?usp=sharing",
+      "https://drive.google.com/file/d/1Y4eQmnKrz4ZCjux0n0oG3F8MfK9CVEVP/view?usp=sharing",
     linkedin: "https://www.linkedin.com/in/shridhar-mugalkhod/",
   };
 
@@ -125,12 +126,14 @@ import nodejsLogo from "../images/nodejs.png"
       role: "Full Stack Developer",
       company: "Simnovus",
       date: "January 2021 - June 2023",
-      desc: "* Worked on Simnovator, a real-time web application where users can test and view statistics and logs of 5G networks.\n" +
-            "* Created REST APIs for handling GET, POST, PATCH, and DELETE methods with reusable, testable, and efficient code using the Node and Express frameworks. MongoDB was used as the database.\n" + 
-            "* Followed the REST architectural style to standardize existing APIs and transform them into RESTful web services.\n" + 
-            "* Implemented multiple WebSocket connections to external servers for obtaining real-time data on the backend side.\n" +
-            "* Optimized statistics graphs and charts for long-term 5G network tests on the frontend side. Additionally, implemented a statistics graph feature to display past data and provided timely bug fixes to ensure the smooth functioning of the Simnovator application.\n" +
-            "* Worked closely with a product manager and software architect on tasks such as database design, product roadmap planning, effort estimation, and determination of developer requirements and specifications.",
+      desc: "* Developed and maintained Simnovator, a real-time web application for testing and monitoring 5G network statistics and logs.\n" +
+            "* Designed, developed, and maintained highly scalable RESTful micro-services that handled critical business logic for the organization.\n" + 
+            "* Optimized code and improved application performance, resulting in a 20% reduction in response times and enhanced user experience.\n" + 
+            "* Enhanced statistics graphs and charts for long-term 5G network tests,improving data visualization and user engagement. Introduced a feature to display historical data and ensured timely bug fixes for a seamless user experience.\n" +
+            "* Conducted research on cloud infrastructure options and recommended AWS services that reduced operational costs by 15%.\n" +
+            "* Implemented multiple WebSocket connections to external servers, enabling real-time data retrieval on the backend.\n" +
+            "* Collaborated closely with a product manager and software architect on database design, product roadmap planning, effort estimation, and developer requirements and specifications determination.\n"+
+            "* Actively participated in code reviews and mentored junior developers,fostering a culture of knowledge sharing and best practices.",
       skills: [
         "ReactJS",
         "NodeJs",
@@ -217,7 +220,7 @@ import nodejsLogo from "../images/nodejs.png"
         },
         {
           name: "Tejaas Reddy",
-          img: "https://media.licdn.com/dms/image/D5635AQF9MI_y4joTwg/profile-framedphoto-shrink_200_200/0/1662761267726?e=1694016000&v=beta&t=YGvpYvjxgKgxr6V8w5z1ksmbr3atbzSZlMneiHRDORc",
+          img: tejasProfile,
           linkedin: "https://www.linkedin.com/in/tejaas-reddy/"
         },
       ],

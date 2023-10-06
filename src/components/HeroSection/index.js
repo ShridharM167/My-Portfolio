@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ResumeIcon from '@mui/icons-material/PersonPin';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Bio } from "../../data/constants";
 import myPhoto from "../../images/shridhar.jpeg";
 
@@ -200,10 +201,10 @@ const Hero = () => {
         <HeroInnerContainer>
           <HeroLeftContainer id="Left">
             <Title>
-              Hey, I am <br /> {Bio.name}
+              {Bio.name}
             </Title>
             <TextLoop>
-              I am
+            Hey, I am
               <Span>
                 <Typewriter
                   options={{
@@ -218,6 +219,9 @@ const Hero = () => {
             <ButtonContainer>
             <Button href={Bio.resume} target="display">
               <ResumeIcon style={{ marginRight: '8px' }} /> Resume
+            </Button>
+            <Button href={Bio.linkedin} target="display"> 
+              <LinkedInIcon style={{ marginRight: '8px' }} /> LinkedIn
             </Button>
             <Button href={Bio.github} target="display"> 
               <GitHubIcon style={{ marginRight: '8px' }} /> Github

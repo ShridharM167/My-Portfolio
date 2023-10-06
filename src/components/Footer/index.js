@@ -95,7 +95,7 @@ function Footer() {
         </Nav>
         
         <Copyright>
-          &copy; 2023 Shridhar Mugalkhod. All rights reserved.
+          &copy; {(new Date().getFullYear())} Shridhar Mugalkhod. All rights reserved.
         </Copyright>
 
       </FooterWrapper>
