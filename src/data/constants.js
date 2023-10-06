@@ -132,7 +132,7 @@ import tejasProfile from '../images/tejas-profile.jpeg'
             "* Enhanced statistics graphs and charts for long-term 5G network tests,improving data visualization and user engagement. Introduced a feature to display historical data and ensured timely bug fixes for a seamless user experience.\n" +
             "* Conducted research on cloud infrastructure options and recommended AWS services that reduced operational costs by 15%.\n" +
             "* Implemented multiple WebSocket connections to external servers, enabling real-time data retrieval on the backend.\n" +
-            "* Collaborated closely with a product manager and software architect on database design, product roadmap planning, effort estimation, and developer requirements and specifications determination.\n"+
+            "* Collaborated closely with a product manager and software architect on database design, product roadmap planning, effort estimation, and developer requirements and specifications determination.\n" +
             "* Actively participated in code reviews and mentored junior developers,fostering a culture of knowledge sharing and best practices.",
       skills: [
         "ReactJS",

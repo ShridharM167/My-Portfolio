@@ -152,6 +152,9 @@ const SubTitle = styled.div`
 const ButtonContainer= styled.div`
   display: flex;
   justify-content: center;
+  @media (max-width: 768px) {
+    display: inline-grid;
+  }
 `
 const Button = styled.a`
 background-color: #1a73e8;
