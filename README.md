@@ -1,6 +1,6 @@
 # Shridhar Mugalkhod's Portfolio Website
 
-![Portfolio Preview](src/images/WebPage.png)
+![Portfolio Preview](src/images/portfolioPage.png)
 
 A personal portfolio website showcasing my work, skills, and projects. This website is designed to highlight my professional background and showcase the projects I've worked on.
 
@@ -37,7 +37,3 @@ If you'd like to contribute to this project, please open an issue or submit a pu
   - GitHub: [shridhar-mugalkhod](https://github.com/shridhar-mugalkhod)
   - Email: mshridhar167@gmail.com
   - LinkedIn: https://www.linkedin.com/in/shridhar-mugalkhod/
-<!-- 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details. -->
