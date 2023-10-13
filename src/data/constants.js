@@ -5,6 +5,7 @@ import mongodbLogo from "../images/mongodb.png";
 import mongooseLogo from "../images/mongoose.png";
 import nodejsLogo from "../images/nodejs.png"
 import tejasProfile from '../images/tejas-profile.jpeg'
+import Keeper from '../images/Keeper.png'
 
   export const Bio = {
     name: "Shridhar Mugalkhod",
@@ -186,6 +187,29 @@ import tejasProfile from '../images/tejas-profile.jpeg'
   export const projects = [
     {
       id: 0,
+      title: "Keeper",
+      date: "Jul 2023 - Sep 2023",
+      description:"Capture what's on your mind.",
+      details:
+        "* Implemented a real-time note-taking Web Application, allowing users to seamlessly add, update, and delete notes with automatic updates across devices.\n" + 
+        "* Developed a user registration and authentication system to ensure data privacy and user-specific notes.\n" + 
+        "* Implemented a responsive user interface, providing a seamless experience on various devices and screen sizes.\n" +
+        "* Employed a RESTful API for seamless communication between the front-end and back-end components.\n" +
+        "* Ensured secure data storage and transmission by implementing encryption and user authentication.\n" +
+        "* Conducted thorough testing, including unit tests and user testing, to identify and resolve bugs and issues.",
+      image: Keeper ,
+      tags: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+      ],
+      // github: "https://github.com/shridhar-mugalkhod/green-the-map",
+    },{
+      id: 1,
       title: "Green the Map",
       date: "Jul 2019 - Aug 2020",
       description:"An effective garbage management system.",

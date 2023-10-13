@@ -29,8 +29,8 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    max-width: 1350px;
-    padding: 80px 0px 0px 0px;
+    max-width: 1100px;
+    padding: 56px 20px 0px 20px;
     gap: 12px;
     @media (max-width: 960px) {
         flex-direction: column;
@@ -69,6 +69,7 @@ const TimelineSection = styled.div`
     align-items: center;
     justify-content: center;
     gap: 12px;
+    padding: 0px;
     @media (max-width: 660px) {
         align-items: end;
     }
@@ -85,7 +86,7 @@ const index = () => {
                     My education has been a journey of self-discovery and growth. My educational details are as follows.
                 </Desc>
                 <TimelineSection>
-                    <Timeline>
+                    <Timeline style={{  padding: "0px" }}>
                         {education.map((education,index) => (
                             <TimelineItem >
                                 <TimelineContent sx={{ py: '12px', px: 2 }}>

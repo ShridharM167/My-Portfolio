@@ -12,13 +12,7 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 80px 0px 10px 0px;
-  @media (max-width: 960px) {
-    padding: 66px 16px;
-  }
-  @media (max-width: 640) {
-    padding: 32px 16px;
-  }
+  padding: 56px 20px 0px 20px;
   z-index: 1;
 `;
 
@@ -190,10 +184,9 @@ vertical-align: middle;
   background-color: #185abc;
 }
 
-    @media (max-width: 640px) {
-        // padding: 12px 0;
-        font-size: 14px;
-    } 
+@media (max-width: 640px) {
+    font-size: 14px;
+} 
 
 `;
 

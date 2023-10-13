@@ -9,7 +9,6 @@ height: 100%;
 position: absolute;
 top: 0;
 left: 0;
-// background-color: #000000a7;
 display: flex;
 align-items: top;
 justify-content: center;
@@ -78,7 +77,6 @@ const Image = styled.img`
 const Label = styled.div`
     font-size: 20px;
     font-weight: 600;
-    // color: ${({ theme }) => theme.text_primary};
     margin: 8px 6px;
     @media only screen and (max-width: 600px) {
         font-size: 16px;
@@ -142,7 +140,6 @@ const MemberName = styled.div`
     font-size: 16px;
     font-weight: 500;
     width: 200px;
-    // color: #5f6368;
     @media only screen and (max-width: 600px) {
         font-size: 14px;
     }
@@ -186,12 +183,25 @@ vertical-align: middle;
   background-color: #185abc;
 }
 
-    @media (max-width: 640px) {
-        // padding: 12px 0;
-        font-size: 14px;
-    } 
+@media (max-width: 640px) {
+    font-size: 14px;
+} 
 
 `;
+
+const Description = styled.div`
+    font-weight: 400;
+    color: #5f6368;
+    overflow: hidden;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    margin-left: 6px;
+    margin-bottom: 10px;
+`
 
 const index = ({ openModal, setOpenModal }) => {
     const project = openModal?.project;
@@ -210,6 +220,7 @@ const index = ({ openModal, setOpenModal }) => {
                     />
                     <Image src={project?.image} />
                     <Title>{project?.title}</Title>
+                    <Description>{project.description}</Description>
                     <Date>{project.date}</Date>
                     <Tags>
                         {project?.tags.map((tag) => (

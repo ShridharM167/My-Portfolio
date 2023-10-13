@@ -20,30 +20,36 @@ const Card = styled.div`
     height: auto;
     background-color: ${({ theme }) => theme.card};
     cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 0 12px 4px rgba(0,0,0,0.4);
+    border: 1px solid #dadce0;
+    border-radius: 28px;
     overflow: hidden;
     padding: 26px 20px;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     gap: 14px;
-    transition: all 0.5s ease-in-out;
+    transition: border .25s;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    align-items: center;
     &:hover {
-        transform: translateY(-5px);
-        // box-shadow: 0 0 50px 4px rgba(0,0,0,0.6);
-        filter: brightness(1.1);
+        -webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+        box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
     }
     &:hover ${Button} {
         display: block;
+    }
+    @media (max-width: 960px) {
+        -webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+        box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
     }
 `
 
 const Image = styled.img`
     width: 100%;
     height: 180px;
-    background-color: ${({ theme }) => theme.white};
     border-radius: 10px;
-    box-shadow: 0 0 16px 2px rgba(0,0,0,0.3);
 `
 
 const Tags = styled.div`
@@ -89,6 +95,7 @@ const Title = styled.div`
 
 const Date = styled.div`
     font-size: 12px;
+    margin-top: 8px;
     margin-left: 2px;
     font-weight: 400;
     @media only screen and (max-width: 768px){
@@ -101,7 +108,6 @@ const Description = styled.div`
     font-weight: 400;
     color: #5f6368;
     overflow: hidden;
-    margin-top: 8px;
     display: -webkit-box;
     max-width: 100%;
     -webkit-line-clamp: 3;
@@ -123,44 +129,21 @@ const More = styled.div`
     line-height: 24px;
   }
 `
-const Members = styled.div`
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-`
-
-const Avatar = styled.img`
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    margin-left: -10px;
-    background-color: ${({ theme }) => theme.white};
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    border: 3px solid ${({ theme }) => theme.card};
-`
-
 const ProjectCards = ({project,setOpenModal}) => {
     return (
         <Card onClick={() => setOpenModal({state: true, project: project})}>
             <Image src={project.image}/>
             <Details>
                 <Title>{project.title}</Title>
-                <Date>{project.date}</Date>
                 <Description>{project.description}</Description>
+                <Date>{project.date}</Date>
             </Details>
             <Tags>
                 {project.tags?.map((tag, index) => (
                 <Tag>{tag}</Tag>
                 ))}
             </Tags>
-            <Members>
-                {project.member?.map((member) => (
-                    <Avatar src={member.img}/>
-                ))}
-            </Members>
-            <More> <span>Load more</span></More>
-            
-            {/* <Button>View Project</Button> */}
+            <More> <span>Load more ...</span></More>            
         </Card>
     )
 }

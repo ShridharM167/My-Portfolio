@@ -17,9 +17,7 @@ const Container = styled.div`
     position: relative;
     z-index: 1;
     align-items: center;
-    @media (max-width: 960px) {
-        padding: 0px;
-    }
+    padding: 56px 20px 0px 20px;
 `;
 
 const Wrapper = styled.div`
@@ -29,8 +27,7 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    max-width: 1350px;
-    padding: 80px 0px 0px 0px;
+    max-width: 1100px;
     gap: 12px;
     @media (max-width: 960px) {
         flex-direction: column;
@@ -69,6 +66,7 @@ const TimelineSection = styled.div`
     align-items: center;
     justify-content: center;
     gap: 12px;
+    padding: 0px;
 `;
 
 
@@ -82,7 +80,7 @@ const Experience = () => {
                     My work experience as a software engineer.
                 </Desc>
                 <TimelineSection>
-                    <Timeline>
+                    <Timeline style={{  padding: "0px" }}>
                         {experiences.map((experience,index) => (
                             <TimelineItem>
                                 <TimelineSeparator>

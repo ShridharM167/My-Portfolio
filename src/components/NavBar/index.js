@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
@@ -8,38 +8,46 @@ import { CloseRounded } from '@mui/icons-material';
 import Logo from '../../images/Logo.svg'
 
 const Nav = styled.div`
-    background: #fff;
-    border-bottom: 1px solid #dadce0;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    padding: 15px 85.333px;
-    box-shadow: 0px 5.333px 80px 0 rgba(0, 0, 0, 0.1);
-    height: 80px;
-    align-items: center;
-    font-size: 1rem;
+    backface-visibility: hidden;
+    background-color: #fff;
+    height: 56px;
+    transform: translate3d(0,0,0);
+    transition: box-shadow .25s;
+    width: 100%;
+    position: relative;
+    z-index: 91;
+
     @media (max-width: 960px) {
         trastion: 0.8s all ease;
     }
     @media (max-width: 640px) {
       padding: 0 0px;
-  }
+    }
+    &.scrolled {
+      box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
 `;
 const NavbarContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
   z-index: 1;
-  width: 100%;
-  padding: 0 24px;
-  max-width: 1200px;
+  // max-width: 1200px;
+  max-width: 1440px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #fff;
+  border-bottom: 1px solid transparent;
+  height: 56px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
 `;
 
 const NavLogo = styled(LinkR)`
-    width: 80%;    
     padding: 0 6px;
     display: flex;
     justify-content: start;
@@ -52,13 +60,14 @@ const NavLogo = styled(LinkR)`
 `;
 
 const NavItems = styled.ul`
-    width: 100%;
-    display: flex;
     align-items: center;
     justify-content:center;
     gap: 32px;
-    padding: 0 6px;
-    list-style: none;
+    margin-left: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
 
     @media screen and (max-width: 768px) {
       display: none;
@@ -66,11 +75,15 @@ const NavItems = styled.ul`
 `;
 
 const NavLink = styled.a`
-    color: ${({ theme }) => theme.text_primary};
     font-weight: 500;
-    cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
+    color: #3c4043;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    position: relative;
+
     :hover {
       color: #EA4335;
     }
@@ -82,19 +95,22 @@ const NavLink = styled.a`
 
 
 const ContactMeButton = styled.a`
-  border: 1.8px solid ${({ theme }) => theme.primary};
+  border: 1.8px solid rgb(30, 94, 219);
+  -webkit-box-pack: center;
   justify-content: center;
   display: flex;
+  -webkit-box-align: center;
   align-items: center;
-  height: 70%;
-  border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
+  height: 50%;
+  border-radius: 10px;
+  color: rgb(30, 94, 219);
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0px 10px;
   font-weight: 500;
   text-decoration: none;
   font-size: 16px;
-  transition: all 0.6s ease-in-out;
+  margin-right: 20px;
+  transition: all 0.6s ease-in-out 0s;
     :hover {
       background: ${({ theme }) => theme.primary};
       color: ${({ theme }) => theme.white};     
@@ -118,13 +134,12 @@ const ButtonContainer = styled.div`
 const MobileIcon = styled.div`
   display: none;
   @media screen and (max-width: 768px) {
-    display: block;
-    position: absolute;
-    top: 11px;
-    right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.5rem;
-    cursor: pointer;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: start;
+    -webkit-box-align: center;
+    align-items: center;
+    text-decoration: none;
     color: ${({ theme }) => theme.text_primary};
   }
 `
@@ -134,25 +149,27 @@ const MobileMenu = styled.div`
     justify-content: center;
     gap: 16px;
     position: absolute;
-    top: 80px;
+    top: 55px;
     right: 0;
     width: 100%;
-    padding: 12px 40px 24px 40px;
+    padding: 20px;
     background: #FFFFFF;
     transition: all 0.6s ease-in-out;
     transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
     z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
 `
 
  const MobileLink = styled.a`
-  color: ${({ theme }) => theme.text_primary};
   font-weight: 500;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  color: #3c4043;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+
   :hover {
     color: ${({ theme }) => theme.primary};
   }
@@ -164,27 +181,43 @@ const MobileMenu = styled.div`
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const theme = useTheme()
     const scrollToTop = () => {
       scroll.scrollToTop({
-        duration: 50, // Duration of the scroll animation in milliseconds
-        smooth: 'easeInOutQuart', // Easing function for smooth animation
+        duration: 50, 
+        smooth: 'easeInOutQuart', 
       });
     };
 
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 100) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
   return (
-    <Nav>
+    <Nav className={isScrolled ? 'scrolled' : ''} >
         <NavbarContainer>
             <NavLogo to='/'>
                 <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer', color: '#4285F4', }} onClick={scrollToTop} className="logo-button" href="/" >
-                <img src={Logo} alt="logo"  style={{ width: '3rem', height: '3rem' }} />
+                <img src={Logo} alt="logo"  style={{ width: '30px', height: '30px' }} />
                 </a>
             </NavLogo>
             <MobileIcon>
                 {!isOpen && <FaBars onClick={() => {
                     setIsOpen(!isOpen)
                 }} />}
-
                 {isOpen && <CloseRounded 
                   onClick={() => {
                     setIsOpen(!isOpen)
@@ -193,8 +226,8 @@ const Navbar = () => {
             </MobileIcon>
             <NavItems>
                 <NavLink href='#about'>About</NavLink>
-                <NavLink href='#skills'>Skills</NavLink>
                 <NavLink href='#experience'>Experience</NavLink>
+                <NavLink href='#skills'>Skills</NavLink>
                 <NavLink href='#projects'>Projects</NavLink>
                 <NavLink href='#education'>Education</NavLink>
             </NavItems>
@@ -207,12 +240,12 @@ const Navbar = () => {
             <MobileLink href="#about" onClick={() => {
               setIsOpen(!isOpen)
             }}>About</MobileLink>
+            <MobileLink href='#experience' onClick={() => {
+              setIsOpen(!isOpen)
+            }}>Experience</MobileLink>            
             <MobileLink href='#skills' onClick={() => {
               setIsOpen(!isOpen)
             }}>Skills</MobileLink>
-            <MobileLink href='#experience' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Experience</MobileLink>
             <MobileLink href='#projects' onClick={() => {
               setIsOpen(!isOpen)
             }}>Projects</MobileLink>

@@ -23,8 +23,8 @@ justify-content: space-between;
 align-items: center;
 flex-direction: column;
 width: 100%;
-max-width: 1350px;
-padding: 80px 0px 80px 0px;
+max-width: 1100px;
+padding: 56px 20px;
 gap: 12px;
 @media (max-width: 960px) {
     flex-direction: column;
@@ -72,12 +72,15 @@ const ContactInput = styled.input`
   background-color: transparent;
   border: 1px solid ${({ theme }) => theme.text_secondary};
   outline: none;
-  font-size: 18px;
+  font-size: 14px;
   color: ${({ theme }) => theme.text_primary};
   border-radius: 12px;
   padding: 12px 16px;
   &:focus {
     border: 1px solid ${({ theme }) => theme.primary};
+  }
+  @media (max-width: 768px) {
+    font-size: 12px;
   }
 `
 
@@ -86,13 +89,17 @@ const ContactInputMessage = styled.textarea`
   background-color: transparent;
   border: 1px solid ${({ theme }) => theme.text_secondary};
   outline: none;
-  font-size: 18px;
+  font-size: 14px;
   color: ${({ theme }) => theme.text_primary};
   border-radius: 12px;
   padding: 12px 16px;
   &:focus {
     border: 1px solid ${({ theme }) => theme.primary};
   }
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+
 `
 
 const ContactButton = styled.input`
@@ -110,15 +117,15 @@ display: inline-flex;
 -webkit-box-direction: normal;
 flex-flow: row nowrap;
 font-family: "Google Sans",Arial,Helvetica,sans-serif;
-font-size: 16px;
+font-size: 14px;
 font-weight: 500;
 justify-content: space-around;
 letter-spacing: .5px;
-line-height: 24px;
+line-height: 14px;
 margin: 10px;
 max-width: fit-content;
-min-height: 48px;
-min-width: 96px;
+min-height: 40px;
+min-width: 80px;
 overflow: hidden;
 padding: 12px 24px 12px 24px;
 text-align: center;
@@ -130,17 +137,15 @@ vertical-align: middle;
   background-color: #185abc;
 }
 
-    @media (max-width: 640px) {
-        // padding: 12px 0;
-        font-size: 14px;
-    } 
+  @media (max-width: 640px) {
+      font-size: 14px;
+  } 
 
 `;
 
 
 const Contact = () => {
 
-  //hooks
   const [open, setOpen] = React.useState(false);
   const form = useRef();
 
@@ -154,8 +159,6 @@ const Contact = () => {
         console.log(error.text);
       });
   }
-
-
 
   return (
     <Container id='contact'>

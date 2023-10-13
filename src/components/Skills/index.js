@@ -12,7 +12,7 @@ align-items: center;
 `
 
 const Wrapper = styled.div`
-padding: 80px 0px 0px 0px;
+padding: 56px 20px 0px 20px;
 position: relative;
 display: flex;
 justify-content: space-between;
@@ -60,11 +60,9 @@ const SkillsContainer = styled.div`
 const Skill = styled.div`
   width: 100%;
   max-width: 400px;
-  background: #f5fcff;
-  // box-shadow: rgba(23, 92, 230, 0.15) 0px 2px 12px;
-  border-radius: 10px;
-  padding: 15px 15px;
-  border-radius: 16px;
+  background: #E3EEFC;
+  padding: 10px;
+  border-radius: 28px;
   @media (max-width: 768px) {
     max-width: 400px;
     padding: 10px 36px;
@@ -78,10 +76,14 @@ const Skill = styled.div`
 `
 
 const SkillTitle = styled.h2`
-  font-size: 28px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
-  margin-bottom: 20px;
+font-size: 18px;
+letter-spacing: -0.5px;
+line-height: 30px;
+font-optical-sizing: none;
+font-family: "Google Sans", Roboto, Arial, sans-serif;
+font-weight: 700;
+--superscript-margin-left: 2px;
+  margin-bottom: 10px;
   text-align: center;
 `
 
@@ -90,15 +92,16 @@ const SkillList = styled.div`
   justify-content: center; 
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `
 
 const SkillItem = styled.div`
-  font-size: 16px;
+  font-size: 14px;
+  letter-spacing: -0.5px;
   font-weight: 400;
   border: 1px solid #9c27b0;
-  border-radius: 12px;
-  padding: 8px 10px;
+  border-radius: 10px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
