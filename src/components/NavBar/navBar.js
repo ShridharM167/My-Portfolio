@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
 import { useTheme } from 'styled-components';
 import { animateScroll as scroll } from 'react-scroll';
-import { CloseRounded } from '@mui/icons-material';
 import Logo from '../../images/Logo.svg'
+import {Drawer} from '@mui/material'
 
 const Nav = styled.div`
     backface-visibility: hidden;
@@ -141,25 +141,26 @@ const MobileIcon = styled.div`
     align-items: center;
     text-decoration: none;
     color: ${({ theme }) => theme.text_primary};
+
+    justify-content: center;
+    -webkit-box-align: center;
+    position: relative;
+    width: 50px;
   }
 `
 const MobileMenu = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 16px;
-    position: absolute;
+    gap: 20px;
     top: 55px;
     right: 0;
     width: 100%;
     padding: 20px;
     background: #FFFFFF;
     transition: all 0.6s ease-in-out;
-    transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
-    opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
     z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
 `
-
  const MobileLink = styled.a`
   font-weight: 500;
   transition: all 0.2s ease-in-out;
@@ -209,6 +210,7 @@ const Navbar = () => {
   return (
     <Nav className={isScrolled ? 'scrolled' : ''} >
         <NavbarContainer>
+        
             <NavLogo to='/'>
                 <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer', color: '#4285F4', }} onClick={scrollToTop} className="logo-button" href="/" >
                 <img src={Logo} alt="logo"  style={{ width: '30px', height: '30px' }} />
@@ -218,11 +220,6 @@ const Navbar = () => {
                 {!isOpen && <FaBars onClick={() => {
                     setIsOpen(!isOpen)
                 }} />}
-                {isOpen && <CloseRounded 
-                  onClick={() => {
-                    setIsOpen(!isOpen)
-                  }}/>
-                }
             </MobileIcon>
             <NavItems>
                 <NavLink href='#about'>About</NavLink>
@@ -236,26 +233,39 @@ const Navbar = () => {
             </ButtonContainer>
             {
           isOpen &&
-          <MobileMenu isOpen={isOpen}>
-            <MobileLink href="#about" onClick={() => {
+            <Drawer anchor="left" open={isOpen} onClose={() => {
               setIsOpen(!isOpen)
-            }}>About</MobileLink>
-            <MobileLink href='#experience' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Experience</MobileLink>            
-            <MobileLink href='#skills' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Skills</MobileLink>
-            <MobileLink href='#projects' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Projects</MobileLink>
-            <MobileLink href='#education' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Education</MobileLink>
-            <ContactMeButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href='#contact' onClick={() => {
-              setIsOpen(!isOpen)
-            }} >Contact Me</ContactMeButton>
-          </MobileMenu>
+            }} style={{width: "calc(100% - 80px)"}}>
+              <div style={{height: '56px',alignItems: 'center', display: 'flex',paddingLeft: '20px',borderBottom: "1px solid #dadce0"}}>
+                <NavLogo to='/'>
+                  <a style={{ display: "flex", alignItems: "center", marginBottom: '20;', cursor: 'pointer', color: '#4285F4', }} onClick={scrollToTop} className="logo-button" href="/" >
+                  <img src={Logo} alt="logo"  style={{ width: '30px', height: '30px' }} />
+                  </a>
+                </NavLogo>
+              </div>
+              <div style={{paddingTop: "20px"}}>
+              <MobileMenu>
+                <MobileLink href="#about" onClick={() => {
+                  setIsOpen(!isOpen)
+                }}>About</MobileLink>
+                <MobileLink href='#experience' onClick={() => {
+                  setIsOpen(!isOpen)
+                }}>Experience</MobileLink>            
+                <MobileLink href='#skills' onClick={() => {
+                  setIsOpen(!isOpen)
+                }}>Skills</MobileLink>
+                <MobileLink href='#projects' onClick={() => {
+                  setIsOpen(!isOpen)
+                }}>Projects</MobileLink>
+                <MobileLink href='#education' onClick={() => {
+                  setIsOpen(!isOpen)
+                }}>Education</MobileLink>
+                <ContactMeButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href='#contact' onClick={() => {
+                  setIsOpen(!isOpen)
+                }} >Contact Me</ContactMeButton> 
+            </MobileMenu>
+            </div>
+            </Drawer>
         }
         </NavbarContainer>
     </Nav>

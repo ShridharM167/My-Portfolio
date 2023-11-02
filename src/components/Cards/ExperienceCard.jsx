@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Chip from '@mui/material/Chip';
 
 const Document = styled.img`
     display: none;
@@ -15,7 +16,7 @@ const Document = styled.img`
 
 const Description = styled.div`
     width: 100%;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 400;
     color : #5f6368;
     margin-bottom: 10px;
@@ -35,8 +36,24 @@ max-width: 100%;
 text-overflow: ellipsis;
 `
 
+const More = styled.div`
+    color: #1a73e8;
+    margin: 17px 0px 3px;
+    text-align: center;
+    display: none;
+    @media (min-width: 1024px){
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: initial;
+    line-height: 24px;
+  }
+`
+
 const Card = styled.div`
-    width: 650px;
+    width: 800px;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
@@ -67,6 +84,11 @@ const Card = styled.div`
         -webkit-line-clamp: unset;
 
     }
+    @media (hover: none){
+        ${More}{
+            display: flex;    
+        }
+    }
 
     border: 0.1px solid #306EE8;
     box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
@@ -94,21 +116,20 @@ const Body = styled.div`
     flex-direction: column; 
 `
 
-
 const Role = styled.div`
     font-size: 18px;
     font-weight: 600;
     color: #4285f4;
     @media only screen and (max-width: 768px){
-        font-size: 14px;
+        font-size: 16px;
     }
 `
 
 const Company = styled.div`
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 800;
     @media only screen and (max-width: 768px){
-        font-size: 12px;
+        font-size: 14px;
     }
 `
 
@@ -120,29 +141,25 @@ const Date = styled.div`
     }
 `
 
-
 const Skills = styled.div`
     width: 100%;
     display: flex;
-    gap: 12px;
-    margin-top: -10px;
+    gap: 8px;
+    margin-bottom:10px;
+    @media only screen and (max-width: 768px){
+        gap: 8px;
+        margin-bottom:6px;
+    }
 `
 
 const ItemWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-`
-
-const Skill = styled.div`
-    font-size: 15px;
-    font-weight: 400;
     @media only screen and (max-width: 768px){
-        font-size: 12px;
+        gap: 4px;
     }
 `
-
-
 
 const ExperienceCard = ({ experience }) => {
     return (
@@ -156,29 +173,23 @@ const ExperienceCard = ({ experience }) => {
                 </Body>
             </Top>
             <Description>
-                {experience?.desc &&
-                    <Span>{experience?.desc}</Span>
-
-                }
                 {experience?.skills &&
                     <>
-                        <br />
                         <Skills>
-                            <b>Skills:</b>
+                            <b>Skills: </b>
                             <ItemWrapper>
                                 {experience?.skills?.map((skill, index) => (
-                                    <Skill>• {skill}</Skill>
+                                    <Chip label={skill} style={{height: "max-content"}}/>
                                 ))}
                             </ItemWrapper>
                         </Skills>
                     </>
                 }
+                {experience?.desc &&
+                    <Span>{experience?.desc}</Span>
+                }
+                <More>Read more ...</More>    
             </Description>
-            {experience.doc &&
-                <a href={experience.doc} target="new">
-                    <Document src={experience.doc} />
-                </a>
-            }
         </Card>
     )
 }

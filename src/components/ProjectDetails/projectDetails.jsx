@@ -2,6 +2,7 @@ import { CloseRounded,LinkedIn } from '@mui/icons-material';
 import { Modal } from '@mui/material';
 import React from 'react'
 import styled from 'styled-components'
+import Chip from '@mui/material/Chip';
 
 const Container = styled.div`
 width: 100%;
@@ -53,6 +54,10 @@ const Date = styled.div`
 
 
 const Desc = styled.div`
+height: 100%;
+max-height: 200px;
+overflow-y: scroll;
+padding-right: 10px;
     white-space: pre-wrap;
     line-height: 1.5rem;
     font-size: 16px;
@@ -88,21 +93,9 @@ const Tags = styled.div`
     display: flex;
     flex-wrap: wrap;
     margin: 8px 0px;
+    gap: 8px;
     @media only screen and (max-width: 600px) {
         margin: 4px 0px;
-    }
-`;
-
-const Tag = styled.div`
-    font-size: 14px;
-    font-weight: 400;
-    color: #5f6368;
-    margin: 4px;
-    padding: 4px 8px;
-    border-radius: 8px;
-    background-color: ${({ theme }) => theme.primary + 20};
-    @media only screen and (max-width: 600px) {
-        font-size: 12px;
     }
 `;
 
@@ -206,7 +199,7 @@ const Description = styled.div`
 const index = ({ openModal, setOpenModal }) => {
     const project = openModal?.project;
     return (
-        <Modal open={true} onClose={() => setOpenModal({ state: false, project: null })}>
+        <Modal open={openModal.state} onClose={() => setOpenModal({ state: false, project: null })}>
             <Container>
                 <Wrapper>
                     <CloseRounded
@@ -224,7 +217,7 @@ const index = ({ openModal, setOpenModal }) => {
                     <Date>{project.date}</Date>
                     <Tags>
                         {project?.tags.map((tag) => (
-                            <Tag>{tag}</Tag>
+                            <Chip label={tag} style={{height: "20px"}}/>
                         ))}
                     </Tags>
                     <Desc>{project?.details}</Desc>

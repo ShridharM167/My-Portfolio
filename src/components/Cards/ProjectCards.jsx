@@ -1,74 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-
-
-const Button = styled.button`
-    display: none;
-    width: 100%;
-    padding: 10px;
-    background-color: ${({ theme }) => theme.white};
-    color: ${({ theme }) => theme.text_black};
-    font-size: 14px;
-    font-weight: 700;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.8s ease-in-out;
-`
-const Card = styled.div`
-    width: 330px;
-    height: auto;
-    background-color: ${({ theme }) => theme.card};
-    cursor: pointer;
-    border: 1px solid #dadce0;
-    border-radius: 28px;
-    overflow: hidden;
-    padding: 26px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    gap: 14px;
-    transition: border .25s;
-    justify-content: space-between;
-    position: relative;
-    z-index: 1;
-    align-items: center;
-    &:hover {
-        -webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-        box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-    }
-    &:hover ${Button} {
-        display: block;
-    }
-    @media (max-width: 960px) {
-        -webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-        box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-    }
-`
-
-const Image = styled.img`
-    width: 100%;
-    height: 180px;
-    border-radius: 10px;
-`
-
-const Tags = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-`
-
-const Tag = styled.span`
-    font-size: 12px;
-    font-weight: 400;
-    color: #5f6368;
-    background-color: ${({ theme }) => theme.primary + 15};
-    padding: 2px 8px;
-    border-radius: 10px;
-`
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { CardActionArea, CardActions } from '@mui/material';
 
 const Details = styled.div`
     width: 100%;
@@ -92,7 +27,6 @@ const Title = styled.div`
         font-size: 16px;
     }
 `
-
 const Date = styled.div`
     font-size: 12px;
     margin-top: 8px;
@@ -102,8 +36,6 @@ const Date = styled.div`
         font-size: 10px;
     }
 `
-
-
 const Description = styled.div`
     font-weight: 400;
     color: #5f6368;
@@ -116,9 +48,9 @@ const Description = styled.div`
 `
 const More = styled.div`
     color: #1a73e8;
-    margin: 17px 0px 3px;
     text-align: center;
-
+    padding: 0px 0px 16px 16px;
+    cursor: pointer ;
     @media (min-width: 1024px){
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -131,20 +63,27 @@ const More = styled.div`
 `
 const ProjectCards = ({project,setOpenModal}) => {
     return (
-        <Card onClick={() => setOpenModal({state: true, project: project})}>
-            <Image src={project.image}/>
+    <Card sx={{ maxWidth: 345 }} style={ {borderRadius:"12px",backgroundImage: "linear-gradient(to right bottom, rgb(178, 212, 255), rgb(234, 230, 255))"}}>
+      <CardActionArea onClick={() => setOpenModal({state: true, project: project})}>
+        <CardMedia
+          component="img"
+          height="180"
+          image={project.image}
+          alt="projectImage"
+          style={{width: "max-content"}}
+        />
+        <CardContent>
             <Details>
                 <Title>{project.title}</Title>
                 <Description>{project.description}</Description>
                 <Date>{project.date}</Date>
             </Details>
-            <Tags>
-                {project.tags?.map((tag, index) => (
-                <Tag>{tag}</Tag>
-                ))}
-            </Tags>
-            <More> <span>Load more ...</span></More>            
-        </Card>
+        </CardContent>
+      </CardActionArea>
+      <CardActions >
+      <More onClick={() => setOpenModal({state: true, project: project})}> <span>Load more ...</span></More> 
+      </CardActions>
+    </Card>
     )
 }
 

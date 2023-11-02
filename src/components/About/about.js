@@ -12,8 +12,12 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 56px 20px 0px 20px;
+  padding: 60px 20px;
+  margin-bottom: 40px;
   z-index: 1;
+  @media (max-width: 768px) {
+    margin-bottom: 0px;
+  }
 `;
 
 const HeroInnerContainer = styled.div`
@@ -22,7 +26,7 @@ const HeroInnerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -192,8 +196,7 @@ vertical-align: middle;
 
 const Hero = () => {
   return (
-    <div id="about">
-      <HeroContainer>
+      <HeroContainer id="about">
         <HeroInnerContainer>
           <HeroLeftContainer id="Left">
             <Title>
@@ -224,13 +227,11 @@ const Hero = () => {
             </Button>
             </ButtonContainer>
           </HeroLeftContainer>
-
           <HeroRightContainer id="Right">
             <Img src={myPhoto} alt="hero-image" />
           </HeroRightContainer>
         </HeroInnerContainer>
       </HeroContainer>
-    </div>
   );
 };
 

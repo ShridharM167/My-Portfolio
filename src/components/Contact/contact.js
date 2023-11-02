@@ -10,6 +10,7 @@ flex-direction: column;
 justify-content: center;
 position: relative;
 z-index: 1;
+padding: 60px 20px;
 align-items: center;
 @media (max-width: 960px) {
     padding: 0px;
@@ -24,7 +25,6 @@ align-items: center;
 flex-direction: column;
 width: 100%;
 max-width: 1100px;
-padding: 56px 20px;
 gap: 12px;
 @media (max-width: 960px) {
     flex-direction: column;
@@ -60,7 +60,8 @@ const ContactForm = styled.form`
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.card};
+  background-image: linear-gradient(to right bottom, rgb(234, 230, 255), rgb(255, 235, 229));
+  border-top: 4px solid #626ee3;
   padding: 32px;
   border-radius: 10px;
   margin-top: 28px;
@@ -119,13 +120,13 @@ flex-flow: row nowrap;
 font-family: "Google Sans",Arial,Helvetica,sans-serif;
 font-size: 14px;
 font-weight: 500;
-justify-content: space-around;
+justify-content: center;
 letter-spacing: .5px;
 line-height: 14px;
-margin: 10px;
+margin: 15px 0 0 0;
 max-width: fit-content;
 min-height: 40px;
-min-width: 80px;
+min-width: 150px;
 overflow: hidden;
 padding: 12px 24px 12px 24px;
 text-align: center;
@@ -144,7 +145,7 @@ vertical-align: middle;
 `;
 
 
-const Contact = () => {
+const ContactMe = () => {
 
   const [open, setOpen] = React.useState(false);
   const form = useRef();
@@ -166,11 +167,13 @@ const Contact = () => {
         <Title>Contact Me</Title>
         <Desc>Your questions and opportunities are just a message away.</Desc>
         <ContactForm ref={form} onSubmit={handleSubmit}>
-          <ContactInput placeholder="Your Email" name="from_email" required />
-          <ContactInput placeholder="Your Name" name="from_name" required/>
+          <ContactInput placeholder="Email" name="from_email" required />
+          <ContactInput placeholder="Name" name="from_name" required/>
           <ContactInput placeholder="Subject" name="subject" required/>
           <ContactInputMessage placeholder="Message" rows="4" name="message"  required/>
-          <ContactButton type="submit" value="Send" />
+          <div style={{width:"100%",display: "flex",justifyContent: "end"}}>
+            <ContactButton type="submit" value="Send" />
+          </div>
         </ContactForm>
         <Snackbar
           open={open}
@@ -184,4 +187,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default ContactMe;

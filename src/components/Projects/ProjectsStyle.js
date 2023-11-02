@@ -7,6 +7,12 @@ export const Container = styled.div`
     position: relative;
     z-index: 1;
     align-items: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+    @media (max-width: 768px) {
+        margin-bottom: 0px;
+    }
+
 `;
 
 export const Wrapper = styled.div`
@@ -17,12 +23,9 @@ export const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    max-width: 1100px;
-    padding: 56px 20px 0px 20px;
+    max-width: 1200px;
     gap: 12px;
-    @media (max-width: 960px) {
-        flex-direction: column;
-    }
+    
 `;
 
 export const Title = styled.div`
