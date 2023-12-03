@@ -7,6 +7,8 @@ import nodejsLogo from "../images/nodejs.png"
 import tejasProfile from '../images/tejas-profile.jpeg'
 import Keeper from '../images/Keeper.png'
 import portfolioPage from '../images/portfolioPage.png'
+import amazonClonePage from '../images/amazonClonePage.png'
+
   export const Bio = {
     name: "Shridhar Mugalkhod",
     roles: [
@@ -197,6 +199,25 @@ import portfolioPage from '../images/portfolioPage.png'
   export const projects = [
     {
       id: 0,
+      title: "Amazon.com - Clone",
+      date: "Nov 2023 - Dec 2023",
+      description:"Clone of Amazon.com",
+      details:
+        "• Developed a fully functional Amazon.com clone using HTML and CSS to showcase proficiency in front-end web development.\n"+
+        "• Crafted a user interface that closely replicates the Amazon website, incorporating key design elements, layout, and styling to achieve a realistic and immersive user experience.\n" + 
+        "• Overcame challenges in replicating complex features of the Amazon website, such as navigation menus, product displays, and layout structures, demonstrating problem-solving abilities in front-end development.\n"+
+        "• Strengthened coding and design skills through the hands-on experience of recreating a widely recognized and complex e-commerce platform.\n"+
+        "• Enhanced understanding of front-end development principles and gained valuable insights into user experience design by emulating a well-established and user-friendly website.",
+      image: amazonClonePage ,
+      tags: [
+        "HTML",
+        "CSS",
+      ],
+      github: "https://github.com/shridhar-mugalkhod/Amazon-clone",
+      webapp: "https://shridhar-mugalkhod.github.io/Amazon-clone/Index.html",
+    },
+    {
+      id: 1,
       title: "Portfolio",
       date: "Sep 2023 - Nov 2023",
       description:"Welcome to my professional portfolio website.",
@@ -212,9 +233,10 @@ import portfolioPage from '../images/portfolioPage.png'
         "Material UI",
       ],
       github: "https://github.com/shridhar-mugalkhod/portfolio",
+      webapp: "https://shridhar-mugalkhod.github.io/portfolio/",
     }, 
     {
-      id: 0,
+      id: 2,
       title: "Keeper",
       date: "Jul 2023 - Sep 2023",
       description:"Capture what's on your mind.",
@@ -237,7 +259,7 @@ import portfolioPage from '../images/portfolioPage.png'
       ],
       // github: "https://github.com/shridhar-mugalkhod/green-the-map",
     },{
-      id: 1,
+      id: 3,
       title: "Green the Map",
       date: "Jul 2019 - Aug 2020",
       description:"An effective garbage management system.",

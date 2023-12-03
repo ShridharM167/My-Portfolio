@@ -12,9 +12,6 @@ position: relative;
 z-index: 1;
 padding: 60px 20px;
 align-items: center;
-@media (max-width: 960px) {
-    padding: 0px;
-}
 `
 
 const Wrapper = styled.div`
