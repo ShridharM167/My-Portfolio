@@ -25,7 +25,6 @@ justify-content: space-between;
 align-items: center;
 flex-direction: column;
 width: 100%;
-max-width: 1200px;
 gap: 12px;
 -webkit-box-pack: justify;
 -webkit-box-align: center;

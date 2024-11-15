@@ -149,7 +149,7 @@ const ContactMe = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_vt9idyd', 'template_rhgxnj6', form.current, 'TY6u3dKV6kTTBCGfa')
+    emailjs.sendForm('service_wpdexhi', 'template_rhgxnj6', form.current, 'TY6u3dKV6kTTBCGfa')
       .then((result) => {
         setOpen(true);
         form.current.reset();

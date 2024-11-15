@@ -124,7 +124,9 @@ const TextLoop = styled.div`
 `;
 
 const Span = styled.span`
-  color: ${({ theme }) => theme.primary};
+  background: linear-gradient(88.28deg, #0094FF 16.83%, #9B8FFE 44.77%, #FF33DE 71.88%, #FF60E6 98.01%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 `;
 
 const SubTitle = styled.div`
