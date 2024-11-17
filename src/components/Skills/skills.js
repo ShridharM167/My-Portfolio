@@ -18,7 +18,7 @@ margin-bottom: 40px;
 `
 
 const Wrapper = styled.div`
-
+max-width: 1440px;
 position: relative;
 display: flex;
 justify-content: space-between;

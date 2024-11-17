@@ -1,187 +1,288 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import { Snackbar } from '@mui/material';
+import React, { useState, useRef, useCallback } from "react";
+import styled from "styled-components";
+import emailjs from "@emailjs/browser";
+import { Snackbar, CircularProgress, Alert } from "@mui/material";
+import contactMeImg from '../../images/contactMe.webp';
+
 
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-position: relative;
-z-index: 1;
-padding: 60px 20px;
-align-items: center;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+`;
 
 const Wrapper = styled.div`
-position: relative;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-direction: column;
-width: 100%;
-max-width: 1100px;
-gap: 12px;
-@media (max-width: 960px) {
-    flex-direction: column;
-}
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+`;
 
-const Title = styled.div`
-font-size: 42px;
-text-align: center;
-font-weight: 600;
-margin-top: 20px;
+const Title = styled.h2`
+  font-size: 42px;
+  text-align: center;
+  font-weight: 600;
   color: ${({ theme }) => theme.text_primary};
+`;
+
+const Desc = styled.p`
+  font-size: 18px;
+  text-align: center;
+  max-width: 600px;
+  color: ${({ theme }) => theme.text_secondary};
+`;
+
+const ContactWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 32px;
+  margin-top: 40px;
+
   @media (max-width: 768px) {
-      margin-top: 12px;
-      font-size: 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 `;
 
-const Desc = styled.div`
-    font-size: 18px;
-    text-align: center;
-    max-width: 600px;
-    color: ${({ theme }) => theme.text_secondary};
-    @media (max-width: 768px) {
-        margin-top: 12px;
-        font-size: 16px;
-    }
+const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 100%;
+    width: 350px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
-
 const ContactForm = styled.form`
-  width: 80%;
-  max-width: 500px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to right bottom, rgb(234, 230, 255), rgb(255, 235, 229));
+  width: 100%;
+  // max-width: 500px;
+  background: linear-gradient(to right bottom, rgb(234, 230, 255), rgb(255, 235, 229));
   border-top: 4px solid #626ee3;
   padding: 32px;
   border-radius: 10px;
-  margin-top: 28px;
   gap: 12px;
-`
+`;
 
-const ContactInput = styled.input`
-  flex: 1;
-  background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary};
-  outline: none;
-  font-size: 14px;
-  color: ${({ theme }) => theme.text_primary};
+const Input = styled.input`
+  border: 1px solid ${({ theme, error }) => (error ? "#e74c3c" : theme.text_secondary)};
   border-radius: 12px;
   padding: 12px 16px;
-  &:focus {
-    border: 1px solid ${({ theme }) => theme.primary};
-  }
-  @media (max-width: 768px) {
-    font-size: 12px;
-  }
-`
-
-const ContactInputMessage = styled.textarea`
-  flex: 1;
-  background-color: transparent;
-  border: 1px solid ${({ theme }) => theme.text_secondary};
-  outline: none;
   font-size: 14px;
   color: ${({ theme }) => theme.text_primary};
+  outline: none;
+  &:focus {
+    border-color: ${({ theme }) => theme.primary};
+  }
+`;
+
+const TextArea = styled.textarea`
+  border: 1px solid ${({ theme, error }) => (error ? "#e74c3c" : theme.text_secondary)};
   border-radius: 12px;
   padding: 12px 16px;
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_primary};
+  outline: none;
+  resize: none;
   &:focus {
-    border: 1px solid ${({ theme }) => theme.primary};
+    border-color: ${({ theme }) => theme.primary};
   }
-  @media (max-width: 768px) {
-    font-size: 12px;
+`;
+
+const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff7700;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 15px;
+  &:hover {
+    background-color: #ff5003;
   }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+`;
 
-`
-
-const ContactButton = styled.input`
-cursor: pointer; 
-background-color: #1a73e8;
-color: #fff;
--webkit-font-smoothing: antialiased;
-text-rendering: optimizeLegibility;
--webkit-box-align: center;
-align-items: center;
-border: 1px solid transparent;
-border-radius: 4px;
-display: inline-flex;
--webkit-box-orient: horizontal;
--webkit-box-direction: normal;
-flex-flow: row nowrap;
-font-family: "Google Sans",Arial,Helvetica,sans-serif;
-font-size: 14px;
-font-weight: 500;
-justify-content: center;
-letter-spacing: .5px;
-line-height: 14px;
-margin: 15px 0 0 0;
-max-width: fit-content;
-min-height: 40px;
-min-width: 150px;
-overflow: hidden;
-padding: 12px 24px 12px 24px;
-text-align: center;
-text-decoration: none;
-vertical-align: middle;
-
-&:hover {
-  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
-  background-color: #185abc;
-}
-
-  @media (max-width: 640px) {
-      font-size: 14px;
-  } 
-
+const ErrorText = styled.span`
+  font-size: 12px;
+  color: #e74c3c;
+  margin-top: -8px;
 `;
 
 
+
 const ContactMe = () => {
-
-  const [open, setOpen] = React.useState(false);
   const form = useRef();
+  const [formState, setFormState] = useState({
+    from_email: "",
+    from_name: "",
+    subject: "",
+    message: "",
+    loading: false,
+    success: false,
+    error: "",
+  });
 
-  const handleSubmit = (e) => {
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
+
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setFormState((prev) => ({ ...prev, [name]: value, error: "" }));
+  }, []);
+
+  const validateForm = () => {
+    const { from_email, from_name, subject, message } = formState;
+    if (!from_name) return "Please provide a Name";
+    if (!from_email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(from_email))
+      return "Please provide a valid email";
+    if (!subject) return "Please provide a Subject";
+    if (!message) return "Please provide a Message";
+    return "";
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_wpdexhi', 'template_rhgxnj6', form.current, 'TY6u3dKV6kTTBCGfa')
-      .then((result) => {
-        setOpen(true);
-        form.current.reset();
-      }, (error) => {
-        console.log(error.text);
+    const error = validateForm();
+    if (error) {
+      setFormState((prev) => ({ ...prev, error }));
+      return;
+    }
+
+    setFormState((prev) => ({ ...prev, loading: true }));
+    try {
+      await emailjs.sendForm(
+        process.env.REACT_APP_CONTACT_EMAIL_SERVICE_ID,
+        process.env.REACT_APP_CONTACT_EMAIL_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_CONTACT_EMAIL_PUBLIC_KEY
+      );
+
+      setSnackbar({
+        open: true,
+        message: "Email sent successfully!",
+        severity: "success",
       });
-  }
+      form.current.reset();
+      setFormState({
+        from_email: "",
+        from_name: "",
+        subject: "",
+        message: "",
+        loading: false,
+        error: "",
+      });
+    } catch (err) {
+      setSnackbar({
+        open: true,
+        message: "Failed to send email. Please try again.",
+        severity: "error",
+      });
+    } finally {
+      setFormState((prev) => ({ ...prev, loading: false }));
+    }
+  };
 
   return (
-    <Container id='contact'>
+    <Container id="contact">
       <Wrapper>
         <Title>Contact Me</Title>
-        <Desc>Your questions and opportunities are just a message away.</Desc>
-        <ContactForm ref={form} onSubmit={handleSubmit}>
-          <ContactInput placeholder="Email" name="from_email" required />
-          <ContactInput placeholder="Name" name="from_name" required/>
-          <ContactInput placeholder="Subject" name="subject" required/>
-          <ContactInputMessage placeholder="Message" rows="4" name="message"  required/>
-          <div style={{width:"100%",display: "flex",justifyContent: "end"}}>
-            <ContactButton type="submit" value="Send" />
-          </div>
-        </ContactForm>
-        <Snackbar
-          open={open}
-          autoHideDuration={6000}
-          onClose={()=>setOpen(false)}
-          message="Email sent successfully!"
-          severity="success"
-        />
+        <Desc>
+          Reach out with your thoughts, questions, or opportunities — I'd love
+          💙 to hear from you.
+        </Desc>
+        <ContactWrapper>
+          <ImageContainer>
+            <img src={contactMeImg} alt="Contact Me" />
+          </ImageContainer>
+          <ContactForm ref={form} onSubmit={handleSubmit} autoComplete="on">
+            <Input
+              type="text"
+              id="name"
+              placeholder="Full Name"
+              name="from_name"
+              autoComplete="name"
+              onChange={handleChange}
+            />
+            <Input
+              type="email"
+              id="email"
+              placeholder="Email"
+              name="from_email"
+              autoComplete="email"
+              onChange={handleChange}
+            />
+            <Input
+              type="text"
+              id="subject"
+              placeholder="Subject"
+              name="subject"
+              autoComplete="subject"
+              onChange={handleChange}
+            />
+            <TextArea
+              id="message"
+              placeholder="Message"
+              rows="4"
+              name="message"
+              autoComplete="message"
+              onChange={handleChange}
+            />
+            {formState.error && <ErrorText>{formState.error}</ErrorText>}
+            <Button type="submit" disabled={formState.loading}>
+              {formState.loading ? (
+                <CircularProgress size={20} color="inherit" />
+              ) : (
+                "Send"
+              )}
+            </Button>
+          </ContactForm>
+          <Snackbar
+            open={snackbar.open}
+            autoHideDuration={5000}
+            onClose={() => setSnackbar({ ...snackbar, open: false })}
+          >
+            <Alert
+              severity={snackbar.severity}
+              variant="filled"
+              sx={{ width: "100%" }}
+            >
+              {snackbar.message}
+            </Alert>
+          </Snackbar>
+        </ContactWrapper>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
 export default ContactMe;
