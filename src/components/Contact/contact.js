@@ -180,7 +180,7 @@ const ContactMe = () => {
 
     setFormState((prev) => ({ ...prev, loading: true }));
     try {
-      console.log(`Contact me email temaplet id: ${process.env.REACT_APP_CONTACT_EMAIL_TEMPLATE_ID}`);
+      console.log(`Contact me email temaplet ID:: ${process.env.REACT_APP_CONTACT_EMAIL_TEMPLATE_ID}`);
       
       await emailjs.sendForm(
         process.env.REACT_APP_CONTACT_EMAIL_SERVICE_ID,
