@@ -180,6 +180,8 @@ const ContactMe = () => {
 
     setFormState((prev) => ({ ...prev, loading: true }));
     try {
+      console.log(`Contact me email temaplet id: ${process.env.REACT_APP_CONTACT_EMAIL_TEMPLATE_ID}`);
+      
       await emailjs.sendForm(
         process.env.REACT_APP_CONTACT_EMAIL_SERVICE_ID,
         process.env.REACT_APP_CONTACT_EMAIL_TEMPLATE_ID,
@@ -202,6 +204,7 @@ const ContactMe = () => {
         error: "",
       });
     } catch (err) {
+      console.error(`Contact me email send error: ${JSON.stringify(err, null, 4)}`);      
       setSnackbar({
         open: true,
         message: "Failed to send email. Please try again.",
