@@ -66,11 +66,14 @@ const ProjectCards = ({project,setOpenModal}) => {
     <Card sx={{ maxWidth: 345 }} style={ {borderRadius:"12px",backgroundImage: "linear-gradient(to right bottom, rgb(178, 212, 255), rgb(234, 230, 255))"}}>
       <CardActionArea onClick={() => setOpenModal({state: true, project: project})}>
         <CardMedia
-          component="img"
-          height="180"
-          image={project.image}
-          alt="projectImage"
-          style={{width: "max-content"}}
+        component="img"
+        image={project.image}
+        alt="projectImage"
+        style={{ 
+          width: "100%", 
+          height: "auto", 
+          objectFit: "cover" 
+        }}
         />
         <CardContent>
             <Details>
