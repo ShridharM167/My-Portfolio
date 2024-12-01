@@ -8,7 +8,7 @@ const FooterContainer = styled.div`
   padding: 2rem 0;
   display: flex;
   justify-content: center;
-  background: #f4f5f7;
+  background: #2f2e41;
 `;
 
 
@@ -40,9 +40,9 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled.a`
-color: ${({ theme }) => theme.text_primary};
+color: ${({ theme }) => theme.bg};
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   transition: color 0.2s ease-in-out;
   &:hover {
     color: ${({ theme }) => theme.primary};
@@ -57,14 +57,14 @@ const SocialMediaIcons = styled.div`
   justify-content: center;
   margin-top: 1rem;
   width: 100%;
-  border-bottom: 1px solid #dadce0;
+  border-bottom: 1px solid white;
 `;
 
 const SocialMediaIcon = styled.a`
   display: inline-block;
   margin: 0 1rem;
   font-size: 1.5rem;
-  color: ${({ theme }) => theme.text_primary};
+  color: ${({ theme }) => theme.bg};
   transition: color 0.2s ease-in-out;
   &:hover {
     color: ${({ theme }) => theme.primary};
@@ -74,7 +74,7 @@ const SocialMediaIcon = styled.a`
 const Copyright = styled.p`
   margin-top: 1.5rem;
   font-size: 0.9rem;
-  color: ${({ theme }) => theme.soft2};
+  color: #6b7688;
   text-align: center;
 `;
 

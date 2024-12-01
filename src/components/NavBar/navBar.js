@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars } from 'react-icons/fa';
-import { useTheme } from 'styled-components';
 import { animateScroll as scroll } from 'react-scroll';
 import Logo from '../../images/Logo.svg'
 import {Drawer} from '@mui/material'
@@ -103,7 +102,7 @@ const ContactMeButton = styled.a`
   align-items: center;
   height: 50%;
   border-radius: 10px;
-  color: rgb(30, 94, 219);
+  color: #0d8ae5;
   cursor: pointer;
   padding: 0px 10px;
   font-weight: 500;
@@ -112,7 +111,7 @@ const ContactMeButton = styled.a`
   margin-right: 20px;
   transition: all 0.6s ease-in-out 0s;
     :hover {
-      background: ${({ theme }) => theme.primary};
+      background:  #185abc;
       color: ${({ theme }) => theme.white};     
     }
     @media screen and (max-width: 768px) { 
@@ -183,7 +182,6 @@ const MobileMenu = styled.div`
 const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const theme = useTheme()
     const scrollToTop = () => {
       scroll.scrollToTop({
         duration: 50, 
@@ -260,7 +258,7 @@ const Navbar = () => {
                 <MobileLink href='#education' onClick={() => {
                   setIsOpen(!isOpen)
                 }}>Education</MobileLink>
-                <ContactMeButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href='#contact' onClick={() => {
+                <ContactMeButton style={{padding: '10px 16px',background: '#0d8ae5', color: 'white',width: 'max-content'}} href='#contact' onClick={() => {
                   setIsOpen(!isOpen)
                 }} >Contact Me</ContactMeButton> 
             </MobileMenu>
